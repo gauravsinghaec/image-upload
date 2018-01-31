@@ -13,6 +13,7 @@ const dashboard = require('./routes/dashboard');
 const upload = require('./routes/upload');
 const logout = require('./routes/logout');
 
+const port = process.env.PORT || 3000;
 const publicPath = path.join(__dirname, '../public');
 const app = express();
 
@@ -49,6 +50,6 @@ app.get('/about', (req, res) => {
   res.send('This is from about.');
 });
 
-app.listen(3000, () => {
-  console.log('Server started on port 3000');
+app.listen(port, () => {
+  console.log(`Server started on port ${port}`);
 });
