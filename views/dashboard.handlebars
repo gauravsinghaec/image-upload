@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/bootstrap.css">
+  <link rel="stylesheet" href="/css/styles.css">
+  <title>Image grid</title>
+</head>
+
+<body id="dashboard">
+  <nav class="navbar navbar-dark bg-dark fixed-top navbar-expand-lg navbar-toggleable-md">
+    <a href="/" class="navbar-brand">Upload Image</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="container">
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a href="/dashboard" class="nav-link">Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a href="/about" class="nav-link">About</a>
+          </li>
+        </ul>
+        {{#if logout}}
+        <a href="/logout" class="btn btn-sm btn-outline-secondary text-white">Logout</a>&nbsp; {{/if}} {{#if login}}
+        <a href="/login" class="btn btn-sm btn-outline-secondary text-white">Login</a>&nbsp;
+        <a href="/register" class="btn btn-sm btn-outline-secondary text-white">Register</a>
+        {{/if}}
+      </div>
+    </div>
+  </nav>
+
+  <div class="container" id="img_grid">
+    {{#if error}}
+      <div class="alert alert-danger">{{this.error}}</div>
+    {{/if}}
+
+    {{#if message}}
+      <div class="alert alert-success">{{this.message}}</div>
+    {{/if}}
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+      <input type="file" name="image" placeholder="Select file" class="form-control form-control-file"><br>
+      <button class="btn btn-sm btn-dark">Upload</button>
+    </form>
+      {{#if images}}
+      <div class="row">
+      {{#each images}}
+      <div class="col-lg-4 col-sm-6 img_style">
+        <img src="/uploads/{{this}}" alt="Image" class="rounded img-thumbnail img-fluid images">
+        <div class="overlay">
+          <a href="/uploads/{{this}}" download="/uploads/{{this}}">
+            <i class="fas fa-arrow-down download"></i>
+          </a>
+          <a href="">
+            <i class="fas fa-heart love"></i>
+          </a>
+        </div>
+      </div>
+    {{/each}}
+    </div>
+   {{/if}}
+
+   {{#if noImages}}
+    <div>
+      <h3 class="text-muted">{{this.noImages}}</h3>
+    </div>
+   {{/if}}
+
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/bootstrap.js"></script>
+</body>
+
+</html>
