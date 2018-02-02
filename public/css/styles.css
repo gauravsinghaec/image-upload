@@ -67,7 +67,7 @@ h2 {
 }
 
 ::placeholder {
-    color: rgba(255, 255, 255, .5);
+    color: #ffffff80;
 }
 
 .loginBox input[type="submit"] {
@@ -102,9 +102,7 @@ h2 {
 }
 
 .images {
-    height: 100%;
-    width: 100%;
-    display: block;
+    height: auto;
     width: 100%;
 }
 
@@ -112,40 +110,64 @@ h2 {
     margin-top: 15px;
 }
 
+.img_style:hover .overlay {
+    opacity: 1;
+}
+
 .overlay {
-    position: absolute;
-    top: 0;
+    position: inherit;
+    top: -25px;
     bottom: 0;
     left: 0;
     right: 0;
-    height: 100%;
     width: 100%;
-		opacity: 1;
+    align-self: flex-end;
+    opacity: 0;
+    transition: 0.3s ease-in-out;
+}
+
+.img_style p {
+    display: inline-block;
+    border: 1px solid #c7c7c7;
+    border-radius: 5px;
+    padding: 3px;
+}
+
+.img_style p:hover {
+    background: #dddddd;
+    transition: .3s ease-in-out;
 }
 
 .download {
-    color: #c0c0c0;
+    color: #42464b;
     font-size: 20px;
     position: absolute;
-    top: 89%;
-    left: 11%;
+    top: 85%;
+    left: 10%;
     transform: translate(-50%, -50%);
-    text-align: center;
 }
 
 .love {
-	color: #ff4848;
-	font-size: 20px;
-	position: absolute;
-	top: 90%;
-	left: 89%;
-	transform: translate(-50%, -50%);
-	text-align: center;
+    color: #ff4848;
+    font-size: 20px;
+    position: absolute;
+    top: 86%;
+    left: 89%;
+    transform: translate(-50%, -50%);
 }
+
 .fas {
-	display: inline;
+    background: #f8ecec;
+    border-radius: 5px;
+    padding: 5px;
 }
 
 #dashboard {
     background: #e6e6e6;
- }
+}
+
+@media (max-width: 768px) {
+    .overlay {
+        opacity: 1;
+    }
+}
