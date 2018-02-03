@@ -15,7 +15,7 @@ function validateForm() {
         ajax.addEventListener('error', errorHandler, false);
         ajax.addEventListener('abort', abortHandler, false);
 
-        ajax.open('POST', 'http://localhost:3000/upload');
+        ajax.open('POST', 'https://sheltered-lowlands-53173.herokuapp.com/upload');
         ajax.send(formData);
         return true;
     } else {
