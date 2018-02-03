@@ -45,8 +45,8 @@
       <div class="alert alert-success">{{this.message}}</div>
     {{/if}}
     <div class="alert alert-success d-none" id="message"></div>
-    <form method="POST" action="/upload" enctype="multipart/form-data" onsubmit="return validateForm()">
-      <input type="file" name="image" class="form-control form-control-file" id="file-upload" required><br>
+    <form enctype="multipart/form-data" id="uploadForm">
+      <input type="file" name="file" class="form-control form-control-file" id="file-upload" required><br>
       
       <p id="errors" class="alert alert-danger d-none"></p>
       

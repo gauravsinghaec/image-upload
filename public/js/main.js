@@ -2,8 +2,11 @@ var allowedFileTypes = ["image/png", "image/jpeg", "image/gif"];
 var progress = document.getElementById('progress');
 var progressBar = document.getElementById('progress-bar');
 var message = document.getElementById('message');
+var form = document.getElementById('uploadForm');
+form.addEventListener('submit', validateForm);
 
-function validateForm() {
+function validateForm(event) {
+    event.preventDefault();
     var fileUpload = document.getElementById('file-upload').files[0];
     if (allowedFileTypes.indexOf(fileUpload.type) > -1) {
         var formData = new FormData();
