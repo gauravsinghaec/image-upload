@@ -13,7 +13,7 @@ const upload = multer({
     fileFilter: (req, file, cb) => {
         checkFileType(file, cb);
     }
-}).single('image');
+}).single('file');
 
 const checkFileType = (file, cb) => {
     const filetypes = /jpeg|jpg|png|gif/;
