@@ -46,12 +46,16 @@
     {{/if}}
     <form method="POST" action="/upload" enctype="multipart/form-data" onsubmit="return validateForm()">
       <input type="file" name="image" class="form-control form-control-file" id="file-upload"><br>
+      
       <p id="errors" class="alert alert-danger d-none"></p>
+      
       <div class="progress" id="progress">
         <div class="progress-bar progress-bar-striped progress-bar-animated" id="progress-bar"></div>
       </div>
+      
       <h3 id="status"></h3>
       <button class="btn btn-sm btn-dark" type="submit">Upload</button>
+    
     </form>
       {{#if images}}
       <div class="row">
