@@ -21,11 +21,9 @@ router.post('/', (req, res) => {
                 User.findById(result1.user).then((result2) => {
                     console.log('Result', result2);
                     var images = result2.images;
-                    images.push(req.file.filename);
+                    images.unshift(req.file.filename);
                     User.findByIdAndUpdate(result2.id, { $set: { images } }).then((result3) => {
-                        res.send('Image uploaded successfully');
-                        req.flash('message', 'Image uploaded successfully.');
-                        res.redirect('dashboard');
+                        res.send('done');
                         console.log('Request processed successfully');
                         return;
                     }, (err) => {
