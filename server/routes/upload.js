@@ -8,14 +8,9 @@ const upload = require('../uploads/uploadFile');
 const keys = require('../keys');
 
 router.post('/', (req, res) => {
+    console.log('Request');
     upload(req, res, (err) => {
-        if (err) {
-            res.render('dashboard', {
-                error: err,
-                logout: 'enable'
-            });
-            return;
-        } else {
+        if (!err) {
             console.log('File information: ', req.file);
             jwt.verify(req.cookies.tk, keys.secret, (err, result1) => {
                 if (err) {
@@ -34,9 +29,11 @@ router.post('/', (req, res) => {
                         return;
                     }, (err) => {
                         console.log('Something went wrong while pushing image reference to database.', err);
+                        return;
                     });
                 }, (err) => {
                     console.log('Something went wrong while finding user in database.', err);
+                    return;
                 });
             });
         }

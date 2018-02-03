@@ -44,9 +44,14 @@
     {{#if message}}
       <div class="alert alert-success">{{this.message}}</div>
     {{/if}}
-    <form action="/upload" method="POST" enctype="multipart/form-data">
-      <input type="file" name="image" placeholder="Select file" class="form-control form-control-file"><br>
-      <button class="btn btn-sm btn-dark">Upload</button>
+    <form method="POST" action="/upload" enctype="multipart/form-data" onsubmit="return validateForm()">
+      <input type="file" name="image" class="form-control form-control-file" id="file-upload"><br>
+      <p id="errors" class="alert alert-danger d-none"></p>
+      <div class="progress" id="progress">
+        <div class="progress-bar progress-bar-striped progress-bar-animated" id="progress-bar"></div>
+      </div>
+      <h3 id="status"></h3>
+      <button class="btn btn-sm btn-dark" type="submit">Upload</button>
     </form>
       {{#if images}}
       <div class="row">
@@ -75,6 +80,7 @@
 
   <script src="/js/jquery.min.js"></script>
   <script src="/js/bootstrap.js"></script>
+  <script src="/js/main.js"></script>
 </body>
 
 </html>

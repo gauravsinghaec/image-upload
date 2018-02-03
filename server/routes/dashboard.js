@@ -20,8 +20,6 @@ router.get('/', (req, res) => {
                 return;
             } else if (result.login === 'render') {
                 User.findById(result.user).then((dbResult) => {
-                    console.log(dbResult);
-                    console.log(dbResult.images);
                     if (dbResult.images.length === 0) {
                         console.log('Entered.');
                         res.render('dashboard', {
