@@ -34,7 +34,7 @@ function progressHandler(event) {
 
 function completeHandler(event) {
     if (event.target.responseText === 'done') {
-        window.location.assign('http://localhost:3000/dashboard');
+        window.location.assign('https://sheltered-lowlands-53173.herokuapp.com/dashboard');
     }
     document.getElementById('progress-bar').style.width = 0;
 }
