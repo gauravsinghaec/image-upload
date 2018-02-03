@@ -33,7 +33,7 @@ function progressHandler(event) {
 
 function completeHandler(event) {
     document.getElementById('status').innerHTML = event.target.responseText;
-    document.getElementById('progressBar').value = 0;
+    document.getElementById('progress-bar').style.width = 0;
 }
 
 function errorHandler(event) {

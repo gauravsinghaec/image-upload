@@ -23,6 +23,7 @@ router.post('/', (req, res) => {
                     var images = result2.images;
                     images.push(req.file.filename);
                     User.findByIdAndUpdate(result2.id, { $set: { images } }).then((result3) => {
+                        res.send('Image uploaded successfully');
                         req.flash('message', 'Image uploaded successfully.');
                         res.redirect('dashboard');
                         console.log('Request processed successfully');
