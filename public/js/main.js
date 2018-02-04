@@ -18,7 +18,7 @@ function validateForm(event) {
         ajax.addEventListener('error', errorHandler, false);
         ajax.addEventListener('abort', abortHandler, false);
 
-        ajax.open('POST', 'https://sheltered-lowlands-53173.herokuapp.com/upload');
+        ajax.open('POST', 'http://localhost:3000/upload');
         ajax.send(formData);
         return true;
     } else {
@@ -37,7 +37,7 @@ function progressHandler(event) {
 
 function completeHandler(event) {
     if (event.target.responseText === 'done') {
-        window.location.assign('https://sheltered-lowlands-53173.herokuapp.com/dashboard');
+        window.location.assign('http://localhost:3000/dashboard');
     }
     document.getElementById('progress-bar').style.width = 0;
 }
